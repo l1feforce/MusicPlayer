@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_choose_folder">Выбрать папку</string>
+    <string name="tv_choose_folder_with_audio">Выберите папку с аудиозаписями</string>
+    <string name="tv_where_to_play_music">Откуда играть музыку?</string>
+    <string name="there_are_no_audio">В этой папки нет музыки</string>
+    <string name="wait_for_songs">Загрузка музыки</string>
+</resources>

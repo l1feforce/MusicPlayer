@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="btn_choose_folder">Choose folder</string>
+    <string name="tv_choose_folder_with_audio">Choose folder with audio</string>
+    <string name="tv_where_to_play_music">Where to play music?</string>
+    <string name="there_are_no_audio">There are no audio in this folder</string>
+    <string name="wait_for_songs">Loading</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="70dp" android:id="@+id/mini_player">
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_for_art"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp" android:padding="6dp"
+            app:cardCornerRadius="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintDimensionRatio="1:1">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" app:srcCompat="@drawable/empty_cover"
+                android:id="@+id/img_mini_cover"
+                android:scaleType="fitCenter"
+        />
+    </androidx.cardview.widget.CardView>
+    <TextView
+            android:text="@android:string/untitled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/tv_mini_song_title" android:layout_weight="4"
+            android:layout_margin="4dp" android:textSize="18sp" android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/card_view_for_art"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_mini_seek_to"/>
+    <TextView
+            android:text="-1:23"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/tv_mini_seek_to" android:layout_weight="1"
+            android:layout_margin="4dp" android:textColor="@color/black"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="18dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_mini_play"/>
+    <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="50dp" android:id="@+id/btn_mini_play" android:layout_weight="1"
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/bg_transparent"
+            app:srcCompat="@drawable/ic_play_28"
+            android:scaleType="centerInside"
+            android:tint="@color/colorPrimaryDark"
+            style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onClick" android:paddingTop="5dp"
+            android:paddingBottom="5dp" android:paddingStart="5dp" android:paddingEnd="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_mini_skip_next" app:layout_constraintDimensionRatio="1:1"/>
+    <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="50dp" app:srcCompat="@drawable/ic_mini_player_next_28"
+            android:id="@+id/btn_mini_skip_next" android:layout_weight="1" android:layout_margin="4dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside" android:onClick="onClick"
+            android:paddingEnd="10dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintDimensionRatio="1:1"
+            android:layout_marginEnd="16dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

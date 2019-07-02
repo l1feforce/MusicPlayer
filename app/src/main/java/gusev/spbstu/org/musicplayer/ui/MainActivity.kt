@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.MediaMetadataRetriever
@@ -31,10 +30,14 @@ import gusev.spbstu.org.musicplayer.repository.CustomMediaPlayer
 import gusev.spbstu.org.musicplayer.repository.RetainedFragment
 import gusev.spbstu.org.musicplayer.ui.adapters.CoverAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.mini_player.*
 import kotlinx.android.synthetic.main.music_player.*
 import kotlinx.coroutines.*
 
-
+/**
+ * К сожалению, я слишком поздно подумал насчет background play, и не успел сделать
+ * все на MediaBrowserService.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -238,20 +241,19 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                val currentSong = mediaPlayer.getCurrentSong()!!.position
-                if (position > currentSong) {
+                val currentSongPosition = mediaPlayer.getCurrentSong()!!.position
+                if (position > currentSongPosition) {
                     val isPlayed = mediaPlayer.isPlaying()
                     mediaPlayer.skipNext()
                     revertPlay(isPlayed)
                     updatePlayerUiAccordingToCurrentSong(mediaPlayer.getCurrentSong()!!, 0)
                 }
-                if (position < currentSong) {
+                if (position < currentSongPosition) {
                     val isPlayed = mediaPlayer.isPlaying()
                     mediaPlayer.skipPrevious()
                     revertPlay(isPlayed)
                     updatePlayerUiAccordingToCurrentSong(mediaPlayer.getCurrentSong()!!, 0)
                 }
-                setupPageViewer()
             }
         })
     }
@@ -358,7 +360,6 @@ class MainActivity : AppCompatActivity() {
             retainedFragment.currentPosition
         )
         if (retainedFragment.isPlayed) onClick(btn_play)
-
 
         listOfCovers = retainedFragment.covers.toMutableList()
         setupPageViewer()

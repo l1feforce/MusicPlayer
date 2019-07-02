@@ -10,53 +10,9 @@
         app:behavior_peekHeight="70dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:gravity="center_vertical"
-            android:weightSum="8" android:id="@+id/mini_player"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-    >
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent" app:srcCompat="@drawable/empty_cover"
-                android:id="@+id/img_mini_cover"
-                android:scaleType="fitCenter"
-                android:background="@drawable/bg_cover"
-                android:layout_weight="1.3" android:layout_margin="4dp" android:padding="6dp"
-                android:layout_marginEnd="48dp"
-        />
-        <TextView
-                android:text="@android:string/untitled"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/tv_mini_song_title" android:layout_weight="4"
-                android:layout_margin="4dp" android:textSize="18sp" android:textColor="@color/black"/>
-        <TextView
-                android:text="-1:23"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/tv_mini_seek_to" android:layout_weight="1"
-                android:layout_margin="4dp" android:textColor="@color/black"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent" android:id="@+id/btn_mini_play" android:layout_weight="1"
-                android:textOff=""
-                android:textOn=""
-                android:background="@drawable/bg_transparent"
-                app:srcCompat="@drawable/ic_play_28"
-                android:scaleType="centerInside"
-                android:tint="@color/colorPrimaryDark"
-                style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onClick" android:paddingTop="5dp"
-                android:paddingBottom="5dp" android:paddingStart="5dp" android:paddingEnd="5dp"/>
-        <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent" app:srcCompat="@drawable/ic_mini_player_next_28"
-                android:id="@+id/btn_mini_skip_next" android:layout_weight="1" android:layout_margin="4dp"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside" android:onClick="onClick"
-                android:paddingEnd="10dp"/>
-    </LinearLayout>
+    <include android:layout_width="0dp" android:layout_height="70dp" layout="@layout/mini_player"
+             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"/>
     <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content" app:srcCompat="@drawable/ic_dropdown_24"
